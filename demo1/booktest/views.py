@@ -78,6 +78,22 @@ def addhero(request,id):
 
         return HttpResponseRedirect('/booktest/detail/%s'%(id,))
 
+def edithero(request,id):
+    hero = HeroInfo.objects.get(pk=id)
+
+    if request.method=='GET':
+        hero = HeroInfo.objects.get(pk=id)
+        return render(request,'booktest/edithero.html',{'hero':hero})
+
+    elif request.method == 'POST':
+        hero.name=request.POST['username']
+        hero.gender=request.POST['sex']
+        hero.skill=request.POST['skill']
+
+        hero.save()
+        # return HttpResponse('success')
+        return HttpResponseRedirect('/booktest/detail/%s/'%(hero.book.id,))
+
 
 
 

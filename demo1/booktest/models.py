@@ -29,3 +29,25 @@ class HeroInfo(models.Model):
 
 
 
+
+class Account(models.Model):
+    username=models.CharField(max_length=20)
+
+class  Content(models.Model):
+    tel=models.CharField(max_length=11)
+    account=models.OneToOneField(Account,on_delete=models.CASCADE)
+
+class Host(models.Model):
+    hostname=models.CharField(max_length=20)
+
+class Applicatian(models.Model):
+    appname=models.CharField(max_length=20)
+    host=models.ManyToManyField(Host)
+    
+
+
+
+
+
+
+
