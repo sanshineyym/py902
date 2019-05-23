@@ -20,7 +20,7 @@ class Tag(models.Model):
 class Article(models.Model):
     title=models.CharField(max_length=50)
     body=models.TextField()
-    ceate_time=models.DateTimeField(auto_now_add=True)
+    create_time=models.DateTimeField(auto_now_add=True)
     update_time=models.DateTimeField(auto_now=True)
     views=models.PositiveIntegerField(default=0)
     catagory=models.ForeignKey(Category,on_delete=models.CASCADE)
