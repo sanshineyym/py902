@@ -9,6 +9,7 @@ urlpatterns = [
     url(r'^archives/(\d+)/(\d+)/$',views.archives,name='archives'),
     url(r'^category/(\d+)/$',views.category,name='category'),
     url(r'^tag/(\d+)/$',views.tag,name='tag'),
+    url(r'^contact/$',views.contact,name='contact'),
     url(r'^$',views.index,name='index'),
 
 ]

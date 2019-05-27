@@ -4,6 +4,8 @@ from .models import Article
 #分页器Paginator  page 当前页面
 from django.core.paginator import Paginator
 import markdown
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 def index(request):
@@ -63,6 +65,13 @@ def tag(request,id):
     page = paginator.get_page(pagenum)
     page.parms = '/category/%s/' % (id,)
     return render(request, 'index.html', {'page': page})
+
+def contact(request):
+    send_mail('django邮件','django可以发送邮件',settings.DEFAULT_FROM_EMAIL,['719048728@qq.com','zhangzhaoyu@qikux.com'])
+
+
+    return render(request, 'contact.html')
+
 
 
 
